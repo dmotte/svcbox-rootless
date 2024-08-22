@@ -23,12 +23,12 @@ install -m644 -t ~/sshd/etc/ssh /ssh-host-keys/ssh_host_*_key.pub 2>/dev/null ||
 ssh-keygen -Af ~/sshd
 
 # Move the host keys out of the temporary directory
-mv ~/sshd/etc/ssh/* ~/sshd
+mv -t ~/sshd ~/sshd/etc/ssh/*
 rm -r ~/sshd/etc
 
 # Copy the (previously missing) generated host keys to the volume
-cp -n ~/sshd/ssh_host_*_key /ssh-host-keys/ 2>/dev/null || :
-cp -n ~/sshd/ssh_host_*_key.pub /ssh-host-keys/ 2>/dev/null || :
+cp -nt/ssh-host-keys ~/sshd/ssh_host_*_key 2>/dev/null || :
+cp -nt/ssh-host-keys ~/sshd/ssh_host_*_key.pub 2>/dev/null || :
 
 ############################### SSH CLIENT KEYS ################################
 
