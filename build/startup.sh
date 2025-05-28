@@ -35,7 +35,7 @@ cp -nt/ssh-host-keys ~/sshd/ssh_host_*_key.pub 2>/dev/null || :
 if [ ! -e ~/.ssh/authorized_keys ]; then
     install -dm700 ~/.ssh
     # shellcheck disable=SC3001
-    install -m600 <(cat /ssh-client-keys/*.pub 2>/dev/null || :) \
+    install -Tm600 <(cat /ssh-client-keys/*.pub 2>/dev/null || :) \
         ~/.ssh/authorized_keys
 fi
 

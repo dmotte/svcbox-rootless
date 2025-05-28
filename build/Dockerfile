@@ -22,7 +22,7 @@ RUN echo '#!/bin/bash\n\nexport LC_ALL=C.UTF-8' \
     > /etc/profile.d/set-c-utf8-locale.sh
 
 RUN useradd -Ums/bin/bash mainuser && \
-    install -d -omainuser -gmainuser -m700 \
+    install -omainuser -gmainuser -dm700 \
         /opt/startup-early /opt/startup-late \
         /ssh-host-keys /ssh-client-keys \
         /home/mainuser/supervisor /home/mainuser/supervisor/conf.d \
