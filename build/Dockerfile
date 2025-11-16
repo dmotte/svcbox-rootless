@@ -39,4 +39,4 @@ RUN sed -E /etc/ssh/sshd_config \
         -e 's|^#?PidFile[ \t].*$|PidFile /home/mainuser/sshd/sshd.pid|' \
         > /home/mainuser/sshd/sshd_config
 
-ENTRYPOINT ["/startup.sh"]
+ENTRYPOINT ["/bin/bash", "/startup.sh"]
